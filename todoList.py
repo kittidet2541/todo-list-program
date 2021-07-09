@@ -1,6 +1,26 @@
+def showListTodo():
+    i = 0
+    for data in listTodo:
+        i = i + 1
+        print(i, data['name'], "     ", data['isDone'])
 
-x="[x]"
-ListTodo = []
+def deleteListTodo():
+
+    print("Enter number for delete:")
+    deleteData = int(input('Enter number:')) - 1
+    listTodo.remove(listTodo[deleteData])
+
+def addListTodo():
+    name = input("Note:")
+    dictTodo = {'name': name, 'isDone': []}
+    listTodo.append(dictTodo)
+
+def doneListTodo():
+    print("ใส่ข้อที่ต้องการบอกว่าทำแล้ว")
+    w = int(input("Enter number:")) - 1
+    listTodo[w]['isDone'] = "[x]"
+
+listTodo = []
 while True:
     print("Welcome to Todo List program")
     print("enter 1:show todo list")
@@ -11,39 +31,23 @@ while True:
     choice = input("enter your number:")
 
     if choice=="1":
-        print(ListTodo)
-        i = 0
-        for data in ListTodo:
-            i = i + 1
-            print(i, data['name'], "     ", data['isDone'])
+        showListTodo()
 
     elif choice=="2":
-        name=input("Note:")
-        DictTodo = {'name': name, 'isDone': x}
-        ListTodo.append(DictTodo)
+        showListTodo()
+        addListTodo()
 
     elif choice=="3":
-        i=0
-        for data in ListTodo:
-            i=i+1
-            print(i,data['name'],"     ",data['isDone'])
-        print("Enter number for delete:")
-        DeleteData = int(input('Enter number:'))-1
-        ListTodo.remove(ListTodo[DeleteData])
+        showListTodo()
+        deleteListTodo()
 
     elif choice=="4":
-        i = 0
-        for data in ListTodo:
-            i = i + 1
-            print(i, data['name'], "     ", data['isDone'])
-        print("ใส่ข้อที่ต้องการบอกว่าทำแล้ว")
-        w = int(input("Enter number:"))-1
-        ListTodo[w]['isDone']="[/]"
+        showListTodo()
+        doneListTodo()
 
     elif choice=="0":
         break
+
     else:
         print("invalid number ")
-
-
-
+        ################################
